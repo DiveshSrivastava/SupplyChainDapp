@@ -48,12 +48,55 @@ Saving artifacts...
 
 ----------------------------------------------------------------------------------Project Details---------------------------------------------------------------------------
 # Supply chain & data auditing
-
 This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
 
-The DApp User Interface when running should look like...
 
-### Prerequisites
+----------------------------------------------------------------------------------Steps to run the application---------------------------------------------------------------------------
 
-Please make sure you've already installed ganache-cli, Truffle and enabled MetaMask extension in your browser.
+# Prerequisites
+1) Please make sure you've already installed 
+  a) ganache
+  b) Truffle : v4.1.14 
+      i) npm uninstall -g truffle
+      ii) npm i -g truffle@4.1.14
+      iii) truffle version
+  c) MetaMask extension
+  d) ganache-cli
+
+2) Please make sure the repository is cloned from the github to the local directory
+  a) Use $ git clone command with the github url
+
+
+## Setup the solution
+  1) Remove the node_modules if present
+      rm node_modules
+  2) clean cache
+      npm cache clean
+      rm package-lock.json
+  3) initialize npm (you can accept defaults)
+      npm init
+  4) install all modules listed as dependencies in package.json
+      npm install
+  5) install truffle-hdwallet-provider if not installed
+      npm install truffle-hdwallet-provider
+  6) install web3 if not installed
+      npm install web3@0.20.6 
+
+### deploy contracts local blockchain
+  1) Run truffle local blockchain
+      truffle develop
+  2) Compie code
+      truffle > compile
+  
+#### run test cases on local blockchain
+  1) Run tests
+      truffle > test
+
+##### Run Front end
+  1) npm run dev - will start front end on http://localhost:3000 url 
+  
+###### deploy contracts on public blockchain if required 
+  1) Configure rinkeby configuration in truffle-config.js file
+  2) Run truffle migrate --network rinkeby
+
 
